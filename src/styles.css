@@ -34,6 +34,10 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
     isolation: isolate;
 }
+.container {
+  width: 100%;
+  height: 100%;
+}
 
 .nav-link {
   display: flex;
@@ -44,4 +48,23 @@ p, h1, h2, h3, h4, h5, h6 {
   list-style-type: none;
   margin: 0;
   padding: 20px;
+}
+
+#content {
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: aqua;
+}
+.restaurant:not(.restaurant-name) {
+  flex: 1;
+  width: 50%;
+  text-align: center;
+  border:  1px solid black;
 }
