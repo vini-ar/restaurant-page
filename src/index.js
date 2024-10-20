@@ -1,40 +1,37 @@
 import { loadHome } from "./home";
 import { loadMenu } from "./menu";
+import { loadContact } from "./contact";
+
 import "./styles.css";
 
 const content = document.querySelector("#content")
 const menuButton = document.querySelector("#menu-btn")
 const homeButton = document.querySelector("#home-btn")
+const contactButton = document.querySelector("#contact-btn")
 
-const menuSections = loadMenu()
-const homeSections = loadHome()
 
-const homeContent = () => {
-    cleanContent()
-    homeSections.forEach((item) => {
-        content.append(item)
-    })
-}
+const home = loadHome()
+const menu = loadMenu()
+const contact = loadContact()
 
-const cleanContent = () => {
+
+const insertSection = (name) => {
     content.replaceChildren()
-}
-
-const menuContent = () => {
-    cleanContent()
-    menuSections.forEach((item) => {
+    name.forEach((item) => {
         content.append(item)
     })
 }
 
-window.addEventListener("load", homeContent())
-
+window.addEventListener("load", insertSection(home))
 
 
 menuButton.addEventListener("click", () => {
-    menuContent()
+    insertSection(menu)
 })
 
 homeButton.addEventListener("click", () => {
-    homeContent()
+    insertSection(home)
+})
+contactButton.addEventListener("click", () => {
+    insertSection(contact)
 })
